@@ -1,16 +1,24 @@
 PODS:
+  - Alamofire (2.0.2)
+  - AlamofireImage (1.1.2):
+    - Alamofire (~> 2.0)
   - Nimble (3.2.0)
   - Quick (0.9.0)
   - SwiftDate (3.0.8)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 2.0)
+  - AlamofireImage (from `https://github.com/Alamofire/AlamofireImage.git`, tag `1.1.2`)
   - Nimble (from `https://github.com/TaemoonCho/Nimble.git`, tag `v3.2.1`)
   - Quick (from `https://github.com/Quick/Quick`, tag `v0.9.0`)
   - SwiftDate
   - SwiftyJSON
 
 EXTERNAL SOURCES:
+  AlamofireImage:
+    :git: https://github.com/Alamofire/AlamofireImage.git
+    :tag: 1.1.2
   Nimble:
     :git: https://github.com/TaemoonCho/Nimble.git
     :tag: v3.2.1
@@ -19,6 +27,9 @@ EXTERNAL SOURCES:
     :tag: v0.9.0
 
 CHECKOUT OPTIONS:
+  AlamofireImage:
+    :git: https://github.com/Alamofire/AlamofireImage.git
+    :tag: 1.1.2
   Nimble:
     :git: https://github.com/TaemoonCho/Nimble.git
     :tag: v3.2.1
@@ -27,11 +38,13 @@ CHECKOUT OPTIONS:
     :tag: v0.9.0
 
 SPEC CHECKSUMS:
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
+  AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
   SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: a4a40c572d3ad2a48cd979555f2b1d145798a24a
+PODFILE CHECKSUM: d2a1512493e9336e205ff060ac9ed168e4978f8f
 
 COCOAPODS: 1.0.1

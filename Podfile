@@ -12,21 +12,26 @@ use_frameworks!
 def testing_pods
     pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.9.0'
     pod 'Nimble', :git => 'https://github.com/TaemoonCho/Nimble.git', :tag => 'v3.2.1'
+end
+
+def base_pods
     pod 'SwiftyJSON'
     pod 'SwiftDate'
+    pod 'Alamofire', '~> 2.0'
+    pod 'AlamofireImage', :git => 'https://github.com/Alamofire/AlamofireImage.git', :tag => '1.1.2'
 end
 
 target 'FlickrSlideAlbum' do
-    pod 'SwiftyJSON'
-    pod 'SwiftDate'
+    base_pods
 end
 
 target 'FlickrSlideAlbumTests' do
+    base_pods
     testing_pods
   end
 
-  target 'FlickrSlideAlbumUITests' do
-    # Pods for testing
-    testing_pods
-  end
+#target 'FlickrSlideAlbumUITests' do
+#    base_pods
+#    testing_pods
+#end
 
