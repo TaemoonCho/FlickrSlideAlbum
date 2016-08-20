@@ -21,8 +21,6 @@ class Feed: NSObject {
     var taken_at: NSDate? = nil
     var published_at: NSDate? = nil
     
-//    let timezone = DateRegion(timeZoneName: TimeZoneName(rawValue: "Asia/Seoul"))
-    
     init(json: JSON) {
         super.init()
         self.title = json["title"].stringValue
@@ -45,5 +43,20 @@ class Feed: NSObject {
             feedArray.append(Feed(json: json))
         }
         return feedArray
+    }
+    
+    class func fromRawResponse(rawResponse: String) -> Array<Feed>? {
+        let targetString = "jsonFlickrFeed("
+        var json : JSON? = nil
+        if rawResponse.rangeOfString(targetString) != nil {
+            let processedJsonString = String(rawResponse.stringByReplacingOccurrencesOfString(targetString, withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).characters.dropLast())
+            json = processedJsonString.json
+        } else {
+            json = rawResponse.json
+        }
+        if let itemArray = json?["items"].array {
+            return self.fromArray(itemArray)
+        }
+        return nil
     }
 }
