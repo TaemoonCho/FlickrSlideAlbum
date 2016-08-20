@@ -11,7 +11,7 @@ use_frameworks!
 
 def testing_pods
     pod 'Quick', :git => 'https://github.com/Quick/Quick', :tag => 'v0.9.0'
-    pod 'Nimble', :git => 'https://github.com/Quick/Nimble', :tag => 'v3.2.0'
+    pod 'Nimble', :git => 'https://github.com/TaemoonCho/Nimble.git', :tag => 'v3.2.1'
     pod 'SwiftyJSON'
     pod 'SwiftDate'
 end

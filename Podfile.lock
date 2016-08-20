@@ -5,23 +5,23 @@ PODS:
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
-  - Nimble (from `https://github.com/Quick/Nimble`, tag `v3.2.0`)
+  - Nimble (from `https://github.com/TaemoonCho/Nimble.git`, tag `v3.2.1`)
   - Quick (from `https://github.com/Quick/Quick`, tag `v0.9.0`)
   - SwiftDate
   - SwiftyJSON
 
 EXTERNAL SOURCES:
   Nimble:
-    :git: https://github.com/Quick/Nimble
-    :tag: v3.2.0
+    :git: https://github.com/TaemoonCho/Nimble.git
+    :tag: v3.2.1
   Quick:
     :git: https://github.com/Quick/Quick
     :tag: v0.9.0
 
 CHECKOUT OPTIONS:
   Nimble:
-    :git: https://github.com/Quick/Nimble
-    :tag: v3.2.0
+    :git: https://github.com/TaemoonCho/Nimble.git
+    :tag: v3.2.1
   Quick:
     :git: https://github.com/Quick/Quick
     :tag: v0.9.0
@@ -32,6 +32,6 @@ SPEC CHECKSUMS:
   SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 3885ecffca6fa94951bc396c34f6b907364c2b24
+PODFILE CHECKSUM: a4a40c572d3ad2a48cd979555f2b1d145798a24a
 
 COCOAPODS: 1.0.1
