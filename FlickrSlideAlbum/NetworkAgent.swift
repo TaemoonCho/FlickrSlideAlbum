@@ -30,8 +30,9 @@ class NetworkAgent {
     
     func getFeedAsModelWithCompletion(block: (NSURLRequest?, NSHTTPURLResponse?, Array<Feed>) -> Void) -> Request {
         return Alamofire.request(Router.Feed()).responseString(completionHandler: { (request, response, result) -> Void in
-            let feedArray = Feed.fromRawResponse(result.value!)
-            block(request, response, feedArray!)
+            if let feedArray = Feed.fromRawResponse(result.value!) {
+                block(request, response, feedArray)
+            }
         })
     }
     
