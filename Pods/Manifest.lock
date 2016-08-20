@@ -1,0 +1,37 @@
+PODS:
+  - Nimble (3.2.0)
+  - Quick (0.9.0)
+  - SwiftDate (3.0.8)
+  - SwiftyJSON (2.3.2)
+
+DEPENDENCIES:
+  - Nimble (from `https://github.com/Quick/Nimble`, tag `v3.2.0`)
+  - Quick (from `https://github.com/Quick/Quick`, tag `v0.9.0`)
+  - SwiftDate
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  Nimble:
+    :git: https://github.com/Quick/Nimble
+    :tag: v3.2.0
+  Quick:
+    :git: https://github.com/Quick/Quick
+    :tag: v0.9.0
+
+CHECKOUT OPTIONS:
+  Nimble:
+    :git: https://github.com/Quick/Nimble
+    :tag: v3.2.0
+  Quick:
+    :git: https://github.com/Quick/Quick
+    :tag: v0.9.0
+
+SPEC CHECKSUMS:
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
+  Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
+  SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
+  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+
+PODFILE CHECKSUM: 3885ecffca6fa94951bc396c34f6b907364c2b24
+
+COCOAPODS: 1.0.1
