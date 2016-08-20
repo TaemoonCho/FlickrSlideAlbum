@@ -10,6 +10,11 @@ import UIKit
 import SwiftyJSON
 import SwiftDate
 
+internal enum FeedImageLoadState: Int {
+    case Impossibility = 0, Prepared, Loading, Failed, Done, Deleted
+}
+
+
 class Feed: NSObject {
     lazy var title: String = ""
     lazy var link: String = ""
@@ -20,6 +25,8 @@ class Feed: NSObject {
     lazy var imageUrl : String = ""
     var taken_at: NSDate? = nil
     var published_at: NSDate? = nil
+    private(set) lazy var image : UIImage? = nil
+    private(set) var imageLoadState = FeedImageLoadState.Impossibility
     
     init(json: JSON) {
         super.init()
@@ -33,8 +40,26 @@ class Feed: NSObject {
         self.published_at = json["published"].stringValue.toDate(DateFormat.ISO8601)!
         if let media = json["media"]["m"].string {
             self.imageUrl = media
+            self.imageLoadState = .Prepared
         }
     }
+    
+    func downloadImage(completion : (Bool) -> Void) {
+        self.imageLoadState = .Loading
+        NetworkAgent.sharedInstance.getImages(self.imageUrl) { (request, response, resultImage) -> Void in
+            self.image = resultImage.value
+            self.imageLoadState = .Done
+            completion(true)
+        }
+    }
+    
+    func removeImage() {
+        if image != nil {
+            image = nil
+            self.imageLoadState = .Deleted
+        }
+    }
+    
     
     class func fromArray(jsons: Array<JSON>) -> Array<Feed>? {
         if jsons.count < 1 { return nil }
