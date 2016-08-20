@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		08EC1C48DBE45D4195C80B73 /* Pods_FlickrSlideAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7402E2443D5E4DE96C1E8516 /* Pods_FlickrSlideAlbum.framework */; };
 		730B596C1D6713C300BF1E72 /* String+JsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730B596B1D6713C300BF1E72 /* String+JsonTests.swift */; };
+		734973E71D68509D003C0F41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973E61D68509D003C0F41 /* Router.swift */; };
+		734973E81D6850AB003C0F41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973E61D68509D003C0F41 /* Router.swift */; };
+		734973EA1D6878AF003C0F41 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973E91D6878AF003C0F41 /* RouterTests.swift */; };
+		734973EC1D6878C2003C0F41 /* NetworkAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973EB1D6878C2003C0F41 /* NetworkAgentTests.swift */; };
 		735848C51D66F4C2005EE9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848C41D66F4C2005EE9EA /* AppDelegate.swift */; };
 		735848C71D66F4C2005EE9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848C61D66F4C2005EE9EA /* ViewController.swift */; };
 		735848CA1D66F4C2005EE9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 735848C81D66F4C2005EE9EA /* Main.storyboard */; };
@@ -18,6 +22,8 @@
 		735848F41D66F50F005EE9EA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848F21D66F50F005EE9EA /* Feed.swift */; };
 		735848F81D66FB91005EE9EA /* String+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848F71D66FB91005EE9EA /* String+Json.swift */; };
 		735848F91D66FB91005EE9EA /* String+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848F71D66FB91005EE9EA /* String+Json.swift */; };
+		7361E6DC1D6846EF00A35796 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */; };
+		7361E6DD1D68471000A35796 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */; };
 		738DE9481D6764E600157C7D /* FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DE9471D6764E600157C7D /* FeedTests.swift */; };
 		73D43F9F1D680E6E007CCC3A /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D43F9E1D680E6E007CCC3A /* NSDate.swift */; };
 		73D43FA01D680E6E007CCC3A /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D43F9E1D680E6E007CCC3A /* NSDate.swift */; };
@@ -38,6 +44,9 @@
 		1B2DE8BBC1011AE62C1D8EC7 /* Pods-FlickrSlideAlbumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrSlideAlbumTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrSlideAlbumTests/Pods-FlickrSlideAlbumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3847250E17911C7DE02AF7BF /* Pods-FlickrSlideAlbumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrSlideAlbumUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrSlideAlbumUITests/Pods-FlickrSlideAlbumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		730B596B1D6713C300BF1E72 /* String+JsonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+JsonTests.swift"; sourceTree = "<group>"; };
+		734973E61D68509D003C0F41 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		734973E91D6878AF003C0F41 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		734973EB1D6878C2003C0F41 /* NetworkAgentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAgentTests.swift; sourceTree = "<group>"; };
 		735848C11D66F4C2005EE9EA /* FlickrSlideAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrSlideAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		735848C41D66F4C2005EE9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		735848C61D66F4C2005EE9EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +60,7 @@
 		735848E61D66F4C3005EE9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		735848F21D66F50F005EE9EA /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		735848F71D66FB91005EE9EA /* String+Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Json.swift"; sourceTree = "<group>"; };
+		7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
 		7361FF601D670D8E0074EDAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
 		7361FF621D670D960074EDAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
 		738DE9471D6764E600157C7D /* FeedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTests.swift; sourceTree = "<group>"; };
@@ -84,6 +94,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		73044EC21D683DDF00BAFE6F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */,
+				734973E61D68509D003C0F41 /* Router.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		735848B81D66F4C2005EE9EA = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +127,7 @@
 		735848C31D66F4C2005EE9EA /* FlickrSlideAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				73044EC21D683DDF00BAFE6F /* Network */,
 				735848F61D66FAF6005EE9EA /* Extension */,
 				735848F51D66FAEF005EE9EA /* Model */,
 				735848C41D66F4C2005EE9EA /* AppDelegate.swift */,
@@ -123,6 +143,7 @@
 		735848D81D66F4C2005EE9EA /* FlickrSlideAlbumTests */ = {
 			isa = PBXGroup;
 			children = (
+				7361E6DA1D6846A400A35796 /* Network */,
 				738DE9461D6764CB00157C7D /* Model */,
 				736CE4021D6704B7007E2766 /* Extension */,
 				735848DB1D66F4C2005EE9EA /* Info.plist */,
@@ -154,6 +175,15 @@
 				73D43F9E1D680E6E007CCC3A /* NSDate.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		7361E6DA1D6846A400A35796 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				734973E91D6878AF003C0F41 /* RouterTests.swift */,
+				734973EB1D6878C2003C0F41 /* NetworkAgentTests.swift */,
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		736CE4021D6704B7007E2766 /* Extension */ = {
@@ -399,6 +429,8 @@
 			files = (
 				735848F81D66FB91005EE9EA /* String+Json.swift in Sources */,
 				735848C71D66F4C2005EE9EA /* ViewController.swift in Sources */,
+				7361E6DC1D6846EF00A35796 /* NetworkAgent.swift in Sources */,
+				734973E71D68509D003C0F41 /* Router.swift in Sources */,
 				735848F31D66F50F005EE9EA /* Feed.swift in Sources */,
 				735848C51D66F4C2005EE9EA /* AppDelegate.swift in Sources */,
 				73D43F9F1D680E6E007CCC3A /* NSDate.swift in Sources */,
@@ -409,8 +441,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				734973EC1D6878C2003C0F41 /* NetworkAgentTests.swift in Sources */,
+				734973EA1D6878AF003C0F41 /* RouterTests.swift in Sources */,
 				730B596C1D6713C300BF1E72 /* String+JsonTests.swift in Sources */,
 				738DE9481D6764E600157C7D /* FeedTests.swift in Sources */,
+				7361E6DD1D68471000A35796 /* NetworkAgent.swift in Sources */,
+				734973E81D6850AB003C0F41 /* Router.swift in Sources */,
 				735848F91D66FB91005EE9EA /* String+Json.swift in Sources */,
 				73D43FA01D680E6E007CCC3A /* NSDate.swift in Sources */,
 				735848F41D66F50F005EE9EA /* Feed.swift in Sources */,
