@@ -40,5 +40,15 @@ class NetworkAgentTests: QuickSpec {
                 expect(responseString.characters.count).toEventually(beGreaterThan(1000))
             }
         }
+        
+        context("Feeds response to Feed model") {
+            var feedArray : Array<Feed>? = nil
+            expect(feedArray).to(beNil())
+            agent.getFeedAsModelWithCompletion({ (request, response, resultArray) -> Void in
+                feedArray = resultArray
+            })
+            expect(feedArray).toNotEventually(beNil())
+            expect(feedArray?.count).toEventually(beGreaterThan(5))
+        }
     }
 }
