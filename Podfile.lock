@@ -6,6 +6,7 @@ PODS:
   - Nimble (3.2.0)
   - Quick (0.9.0)
   - SwiftDate (3.0.8)
+  - SwiftLoader (0.2.5)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Nimble (from `https://github.com/TaemoonCho/Nimble.git`, tag `v3.2.1`)
   - Quick (from `https://github.com/Quick/Quick`, tag `v0.9.0`)
   - SwiftDate
+  - SwiftLoader
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -46,8 +48,9 @@ SPEC CHECKSUMS:
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
   SwiftDate: 971f8b9394f664f2226b9c3ab64e801a7291c612
+  SwiftLoader: 12d7a6f661f5e9a2c9a72003e7dd6162f4ff0cc4
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: da9a0ff14ccb19e778bc12af9dc8b631e0d57c5c
+PODFILE CHECKSUM: df66c6f693e8a03501d38e462a43bac5f066f670
 
 COCOAPODS: 1.0.1

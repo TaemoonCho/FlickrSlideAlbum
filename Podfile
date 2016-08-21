@@ -16,6 +16,7 @@ end
 
 def ui_pods
     pod 'ActionSheetPicker-3.0', '~> 2.2.0'
+    pod 'SwiftLoader'
 end
 
 def base_pods
