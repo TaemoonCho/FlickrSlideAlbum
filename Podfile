@@ -14,6 +14,10 @@ def testing_pods
     pod 'Nimble', :git => 'https://github.com/TaemoonCho/Nimble.git', :tag => 'v3.2.1'
 end
 
+def ui_pods
+    pod 'ActionSheetPicker-3.0', '~> 2.2.0'
+end
+
 def base_pods
     pod 'SwiftyJSON'
     pod 'SwiftDate'
@@ -22,6 +26,7 @@ def base_pods
 end
 
 target 'FlickrSlideAlbum' do
+    ui_pods
     base_pods
 end
 
