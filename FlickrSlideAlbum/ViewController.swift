@@ -8,19 +8,25 @@
 
 import UIKit
 import ActionSheetPicker_3_0
+import SwiftLoader
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var setDurationButton: UIButton!
     @IBOutlet weak var durationLabelView: UILabel!
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var pivkerView: UIPickerView!
     
-    var duration = 5
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateLabel()
+        var config : SwiftLoader.Config = SwiftLoader.Config()
+        config.size = 150
+        config.spinnerColor = .grayColor()
+        config.titleTextColor = .grayColor()
+        config.backgroundColor = .whiteColor()
+        config.foregroundColor = .blackColor()
+        config.foregroundAlpha = 0.35
+        SwiftLoader.setConfig(config)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -35,7 +41,8 @@ class ViewController: UIViewController {
             ], initialSelection: [4, 0], doneBlock: {
                 picker, index, values  in
                 if let i = index.first {
-                    self.duration = i.integerValue + 1
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.duration = i.integerValue + 1
                     i.integerValue
                     self.updateLabel()
                 }
@@ -43,26 +50,26 @@ class ViewController: UIViewController {
             }, cancelBlock: { ActionMultipleStringCancelBlock in return }, origin: sender)
     }
     
-    @IBOutlet weak var startButtonTapped: UIButton!
-    func updateLabel() {
-        self.durationLabelView.text = String(self.duration) + " seconds per each photos."
-    }
+    @IBAction func startButtonTapped(sender: AnyObject) {
+        let feedManager = FeedManager.sharedInstance
+        if !feedManager.isRunning {
+            SwiftLoader.show(title: "Fetching feeds...", animated: true)
+            print("running FeedManager")
+            feedManager.runWithPreparedBlock { (prepared) -> Void in
+                print("Now, FeedManager have prepared.")
+                SwiftLoader.hide()
+                if let imageSliderViewController = self.storyboard?.instantiateViewControllerWithIdentifier("imageSliderViewController") {
+                    self.showViewController(imageSliderViewController, sender: imageSliderViewController)
+                }
 
-    //MARK: UIPickerViewDataSource
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+            }
+        }
     }
     
-    //MARK: UIPickerViewDelegate
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(row) + "Sec"
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // TODO
+    func updateLabel() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let duration = appDelegate.duration
+        self.durationLabelView.text = String(duration) + " seconds per each photos."
     }
 }
 

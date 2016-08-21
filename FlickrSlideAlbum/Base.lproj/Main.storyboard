@@ -35,6 +35,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <state key="normal" title="시작"/>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="adi-Al-Wbz"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seconds per each photos " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJL-52-RDk">
                                 <rect key="frame" x="182" y="256" width="236" height="21"/>
@@ -58,19 +61,16 @@
                     </view>
                     <connections>
                         <outlet property="durationLabelView" destination="iJL-52-RDk" id="mvh-gs-5lY"/>
-                        <outlet property="setDurationButton" destination="9jC-13-qJ5" id="NJe-u2-Art"/>
-                        <outlet property="startButton" destination="QY3-hJ-X6X" id="FAQ-zk-hkA"/>
-                        <outlet property="startButtonTapped" destination="QY3-hJ-X6X" id="HFj-cj-nis"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="333"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Slider View Controller-->
         <scene sceneID="27V-Rf-391">
             <objects>
-                <viewController id="aky-jB-xls" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="imageSliderViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aky-jB-xls" customClass="ImageSliderViewController" customModule="FlickrSlideAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="n7s-wg-auH"/>
                         <viewControllerLayoutGuide type="bottom" id="wfg-w2-PP1"/>
@@ -78,8 +78,32 @@
                     <view key="view" contentMode="scaleToFill" id="tm7-cc-35k">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fog-OA-mN7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F10-6J-FKT">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.070236308710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="0F9-7J-Mhr"/>
+                                    <constraint firstAttribute="width" constant="240" id="uYE-w5-kg7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fog-OA-mN7" firstAttribute="height" secondItem="tm7-cc-35k" secondAttribute="height" id="02w-Ma-VM5"/>
+                            <constraint firstItem="fog-OA-mN7" firstAttribute="width" secondItem="tm7-cc-35k" secondAttribute="width" id="8gy-2k-rM1"/>
+                            <constraint firstItem="F10-6J-FKT" firstAttribute="centerY" secondItem="tm7-cc-35k" secondAttribute="centerY" id="Dyi-24-adI"/>
+                            <constraint firstItem="fog-OA-mN7" firstAttribute="centerY" secondItem="tm7-cc-35k" secondAttribute="centerY" id="R5e-Wt-Evj"/>
+                            <constraint firstItem="fog-OA-mN7" firstAttribute="centerX" secondItem="tm7-cc-35k" secondAttribute="centerX" id="Vis-Va-JM0"/>
+                            <constraint firstItem="F10-6J-FKT" firstAttribute="centerX" secondItem="tm7-cc-35k" secondAttribute="centerX" id="WbL-it-Qvg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="fog-OA-mN7" id="G8q-UR-d5N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KzT-TR-osF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
