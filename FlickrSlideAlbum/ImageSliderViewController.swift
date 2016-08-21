@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftLoader
 
 class ImageSliderViewController: UIViewController {
 
@@ -22,7 +23,6 @@ class ImageSliderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addTapGestureToImageView()
-        self.getNewFeed()
         self.startTimer()
     }
 
@@ -44,11 +44,16 @@ class ImageSliderViewController: UIViewController {
     }
     
     func getNewFeed() {
-        FeedManager.sharedInstance.getNextFeedWithBlock { (isDone, feed) -> Void in
+        FeedManager.sharedInstance.getNextFeedWithBlock { (isNew, feed) -> Void in
             dispatch_async(dispatch_get_main_queue(),{
-                if let aFeed = feed {
-                    self.currentFeed = feed
-                    self.changeInfomations(aFeed)
+                if isNew {
+                    if let aFeed = feed {
+                        SwiftLoader.hide()
+                        self.currentFeed = feed
+                        self.changeInfomations(aFeed)
+                    }
+                } else {
+                    SwiftLoader.show(title: "Downloading...", animated: true)
                 }
             })
         }
@@ -58,6 +63,8 @@ class ImageSliderViewController: UIViewController {
         self.imageView.fadeOutAndIn(beforeCompleteBlock: { () -> Void in
             if let image = feed.image {
                 self.imageView.image = image
+            } else {
+                self.imageView.image = nil
             }
         })
         if showInfo {

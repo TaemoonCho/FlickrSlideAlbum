@@ -11,12 +11,14 @@ import Alamofire
 
 class FeedManager: NSObject {
     private let agent = NetworkAgent.sharedInstance
-    private var semaphore = dispatch_semaphore_create(1)
+    private var semaphore = dispatch_semaphore_create(0)
+    private var queue = dispatch_queue_create("FeedManagerDownloadQueue", DISPATCH_QUEUE_SERIAL)
     private(set) var bufferFeedUnit = 0
     private(set) var feeds : Array<Feed> = Array<Feed>()
     private(set) var currentRequest : Request? = nil
     private(set) var isRunning = false
     private(set) var prepared = false
+    private var feedFetching = false
     private var preparedClosure: ((Bool) -> Void)?
     
     class var sharedInstance: FeedManager {
@@ -30,7 +32,7 @@ class FeedManager: NSObject {
         return Static.instance!
     }
     
-    init(bufferFeedUnit: Int = 3) {
+    init(bufferFeedUnit: Int = 20) {
         super.init()
         self.bufferFeedUnit = bufferFeedUnit
     }
@@ -38,22 +40,21 @@ class FeedManager: NSObject {
     func runWithPreparedBlock(block: (Bool) -> Void) {
         self.preparedClosure = block
         self.isRunning = true
+        dispatch_semaphore_signal(self.semaphore)
         self.fetchNewFeedsIfNeed()
     }
     
     private func hasNeedNewFeeds() -> Bool {
-        return (self.feeds.count <= bufferFeedUnit)
+        return ((self.feeds.count <= bufferFeedUnit) && !self.feedFetching)
     }
     
     func fetchNewFeedsIfNeed() {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+        dispatch_async(self.queue) {
             dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
             if self.hasNeedNewFeeds() {
+                self.feedFetching = true
                 self.agent.getFeedAsModelWithCompletion({ (request, response, resultArray) -> Void in
-                    self.feeds.appendContentsOf(resultArray)
-                    dispatch_semaphore_signal(self.semaphore)
-                    self.downloadFeedImageIfNeed()
-                    return
+                    self.downloadFeedImageInArray(resultArray)
                 })
             }
             dispatch_semaphore_signal(self.semaphore)
@@ -61,10 +62,10 @@ class FeedManager: NSObject {
     }
     
     func getNextFeedWithBlock(block: (Bool, Feed?) -> Void) {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+        dispatch_async(self.queue) {
             dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
-            if self.feeds.count >= 2 {
-                block(true, self.feeds.first)
+            if self.feeds.count >= 1 {
+                block(self.feeds.first?.imageLoadState == FeedImageLoadState.Done, self.feeds.first)
                 self.feeds.removeFirst()
             } else {
                 block(false, nil)
@@ -74,32 +75,40 @@ class FeedManager: NSObject {
         }
     }
 
-    private func downloadImage(feed: Feed, index: Int, completeBlock: (Bool, nextIndex: Int) -> Void) {
+    private func downloadImage(feeds: Array<Feed>, index: Int, completeBlock: (Array<Feed>, nextIndex: Int) -> Void) {
+        let feed = feeds[index]
         if (feed.imageLoadState == FeedImageLoadState.Prepared) {
             feed.downloadImage { (complete) -> Void in
-                completeBlock(complete, nextIndex: index + 1)
+                completeBlock(feeds, nextIndex: index + 1)
             }
         } else {
-            completeBlock(true, nextIndex: index + 1)
+            completeBlock(feeds, nextIndex: index + 1)
         }
     }
     
-    private func downloadFeedImageIfNeed() {
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-            dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
-            func completeBlock(complete: Bool, nextIndex: Int) -> Void {
-                if ((!self.prepared) && (self.feeds.count > 0)) {
-                    self.prepared = true
-                    if let closure = self.preparedClosure {
-                        closure(true)
+    private func downloadFeedImageInArray(feeds: Array<Feed>) {
+        dispatch_async(self.queue) {
+            func completeBlock(feeds: Array<Feed>, nextIndex: Int) -> Void {
+                if feeds.count > nextIndex {
+                    self.downloadImage(feeds, index: nextIndex, completeBlock: completeBlock)
+                } else if feeds.count == nextIndex {
+                    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
+                    if self.feeds.count == 0 {
+                        self.feeds.appendContentsOf(feeds)
+                    } else {
+                        self.feeds.insertContentsOf(feeds, at: self.feeds.endIndex - 1)
+                    }
+                    self.feedFetching = false
+                    dispatch_semaphore_signal(self.semaphore)
+                    if !self.prepared {
+                        self.prepared = true
+                        if let closure = self.preparedClosure {
+                            closure(self.prepared)
+                        }
                     }
                 }
-                if (self.feeds.count > nextIndex) {
-                    self.downloadImage(self.feeds[nextIndex], index: nextIndex, completeBlock: completeBlock)
-                }
             }
-            self.downloadImage(self.feeds[0], index: 0, completeBlock: completeBlock)
-            dispatch_semaphore_signal(self.semaphore)
+            self.downloadImage(feeds, index: 0, completeBlock: completeBlock)
         }
     }
     

@@ -47,9 +47,13 @@ class Feed: NSObject {
     func downloadImage(completion : (Bool) -> Void) {
         self.imageLoadState = .Loading
         NetworkAgent.sharedInstance.getImages(self.imageUrl) { (request, response, resultImage) -> Void in
-            self.image = resultImage.value
-            self.imageLoadState = .Done
-            completion(true)
+            if resultImage.isSuccess {
+                self.image = resultImage.value
+                self.imageLoadState = .Done
+            } else {
+                self.imageLoadState = .Failed
+            }
+            completion(self.imageLoadState == .Done)
         }
     }
     
