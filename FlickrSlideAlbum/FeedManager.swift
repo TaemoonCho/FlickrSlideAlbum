@@ -53,8 +53,10 @@ class FeedManager: NSObject {
                     self.feeds.appendContentsOf(resultArray)
                     dispatch_semaphore_signal(self.semaphore)
                     self.downloadFeedImageIfNeed()
+                    return
                 })
             }
+            dispatch_semaphore_signal(self.semaphore)
         }
     }
     

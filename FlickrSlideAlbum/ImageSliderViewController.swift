@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ImageSliderViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var timer: NSTimer = NSTimer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.changeImage()
+        self.startTimer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +26,23 @@ class ImageSliderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func startTimer() {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let duration = appDelegate.duration
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(duration), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        
+    }
+    
+    func changeImage() {
+        FeedManager.sharedInstance.getNextFeedWithBlock { (isDone, feed) -> Void in
+            dispatch_async(dispatch_get_main_queue(),{
+                print("Now showing \(feed?.imageUrl)")
+                if let image = feed?.image {
+                    self.imageView.image = image.af_imageAspectScaledToFitSize(CGSize(width: 150, height: 150))
+                }
+            })
+        }
+    }
 
     /*
     // MARK: - Navigation
