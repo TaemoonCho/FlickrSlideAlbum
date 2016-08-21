@@ -10,13 +10,19 @@ import UIKit
 
 class ImageSliderViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var urlLabel: UILabel!
     var timer: NSTimer = NSTimer()
+    var showInfo = true
+    lazy var currentFeed: Feed? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.changeImage()
+        self.addTapGestureToImageView()
+        self.getNewFeed()
         self.startTimer()
     }
 
@@ -25,33 +31,63 @@ class ImageSliderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func addTapGestureToImageView() {
+        let gesture = UITapGestureRecognizer(target: self, action: Selector("showOrHideInfoLabels:"))
+        self.view.addGestureRecognizer(gesture)
+    }
+    
     func startTimer() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let duration = appDelegate.duration
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(duration), target: self, selector: Selector("changeImage"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(duration), target: self, selector: Selector("getNewFeed"), userInfo: nil, repeats: true)
         
     }
     
-    func changeImage() {
+    func getNewFeed() {
         FeedManager.sharedInstance.getNextFeedWithBlock { (isDone, feed) -> Void in
             dispatch_async(dispatch_get_main_queue(),{
-                if let image = feed?.image {
-                    self.imageView.fadeOutAndIn(0.7, beforeCompleteBlock: { () -> Void in
-                        self.imageView.image = image
-                    })
+                if let aFeed = feed {
+                    self.currentFeed = feed
+                    self.changeInfomations(aFeed)
                 }
             })
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    private func changeInfomations(feed: Feed) {
+        self.imageView.fadeOutAndIn(beforeCompleteBlock: { () -> Void in
+            if let image = feed.image {
+                self.imageView.image = image
+            }
+        })
+        if showInfo {
+            self.titleLabel.fadeOutAndIn(beforeCompleteBlock: { () -> Void in
+                self.titleLabel.text = feed.title
+            })
+            self.authorLabel.fadeOutAndIn(beforeCompleteBlock: { () -> Void in
+                self.authorLabel.text = feed.author
+            })
+            self.urlLabel.fadeOutAndIn(beforeCompleteBlock: { () -> Void in
+                self.urlLabel.text = feed.imageUrl
+            })
+        }
     }
-    */
-
+    
+    func showOrHideInfoLabels(sender: UITapGestureRecognizer) {
+        self.showInfo = !(self.showInfo)
+        if self.showInfo {
+            if let feed = currentFeed {
+                self.titleLabel.text = feed.title
+                self.authorLabel.text = feed.author
+                self.urlLabel.text = feed.imageUrl
+            }
+            self.titleLabel.fadeIn()
+            self.authorLabel.fadeIn()
+            self.urlLabel.fadeIn()
+        } else {
+            self.titleLabel.fadeOut()
+            self.authorLabel.fadeOut()
+            self.urlLabel.fadeOut()
+        }
+    }
 }
