@@ -25,6 +25,9 @@
 		7361E6DC1D6846EF00A35796 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */; };
 		7361E6DD1D68471000A35796 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */; };
 		738DE9481D6764E600157C7D /* FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DE9471D6764E600157C7D /* FeedTests.swift */; };
+		73A5E4A31D68B0CD0048F5F3 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5E4A21D68B0CD0048F5F3 /* FeedManager.swift */; };
+		73A5E4A41D68B0CD0048F5F3 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5E4A21D68B0CD0048F5F3 /* FeedManager.swift */; };
+		73A5E4A61D69653C0048F5F3 /* FeedManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5E4A51D69653C0048F5F3 /* FeedManagerTests.swift */; };
 		73D43F9F1D680E6E007CCC3A /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D43F9E1D680E6E007CCC3A /* NSDate.swift */; };
 		73D43FA01D680E6E007CCC3A /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D43F9E1D680E6E007CCC3A /* NSDate.swift */; };
 		FC3DAC3F0B1C27E1F1C7FEEE /* Pods_FlickrSlideAlbumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CD8C60156E86C42F58C966 /* Pods_FlickrSlideAlbumTests.framework */; };
@@ -64,6 +67,8 @@
 		7361FF601D670D8E0074EDAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
 		7361FF621D670D960074EDAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
 		738DE9471D6764E600157C7D /* FeedTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTests.swift; sourceTree = "<group>"; };
+		73A5E4A21D68B0CD0048F5F3 /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		73A5E4A51D69653C0048F5F3 /* FeedManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManagerTests.swift; sourceTree = "<group>"; };
 		73D43F9E1D680E6E007CCC3A /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		7402E2443D5E4DE96C1E8516 /* Pods_FlickrSlideAlbum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrSlideAlbum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76CD8C60156E86C42F58C966 /* Pods_FlickrSlideAlbumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrSlideAlbumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +132,7 @@
 		735848C31D66F4C2005EE9EA /* FlickrSlideAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				73A5E4A11D68A2130048F5F3 /* Worker */,
 				73044EC21D683DDF00BAFE6F /* Network */,
 				735848F61D66FAF6005EE9EA /* Extension */,
 				735848F51D66FAEF005EE9EA /* Model */,
@@ -147,6 +153,7 @@
 				738DE9461D6764CB00157C7D /* Model */,
 				736CE4021D6704B7007E2766 /* Extension */,
 				735848DB1D66F4C2005EE9EA /* Info.plist */,
+				73A5E4A51D69653C0048F5F3 /* FeedManagerTests.swift */,
 			);
 			path = FlickrSlideAlbumTests;
 			sourceTree = "<group>";
@@ -200,6 +207,14 @@
 				738DE9471D6764E600157C7D /* FeedTests.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		73A5E4A11D68A2130048F5F3 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				73A5E4A21D68B0CD0048F5F3 /* FeedManager.swift */,
+			);
+			name = Worker;
 			sourceTree = "<group>";
 		};
 		9A3510B6EFB3A11E80D5F371 /* Frameworks */ = {
@@ -430,6 +445,7 @@
 				735848F81D66FB91005EE9EA /* String+Json.swift in Sources */,
 				735848C71D66F4C2005EE9EA /* ViewController.swift in Sources */,
 				7361E6DC1D6846EF00A35796 /* NetworkAgent.swift in Sources */,
+				73A5E4A31D68B0CD0048F5F3 /* FeedManager.swift in Sources */,
 				734973E71D68509D003C0F41 /* Router.swift in Sources */,
 				735848F31D66F50F005EE9EA /* Feed.swift in Sources */,
 				735848C51D66F4C2005EE9EA /* AppDelegate.swift in Sources */,
@@ -442,8 +458,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				734973EC1D6878C2003C0F41 /* NetworkAgentTests.swift in Sources */,
+				73A5E4A41D68B0CD0048F5F3 /* FeedManager.swift in Sources */,
 				734973EA1D6878AF003C0F41 /* RouterTests.swift in Sources */,
 				730B596C1D6713C300BF1E72 /* String+JsonTests.swift in Sources */,
+				73A5E4A61D69653C0048F5F3 /* FeedManagerTests.swift in Sources */,
 				738DE9481D6764E600157C7D /* FeedTests.swift in Sources */,
 				7361E6DD1D68471000A35796 /* NetworkAgent.swift in Sources */,
 				734973E81D6850AB003C0F41 /* Router.swift in Sources */,

@@ -23,7 +23,7 @@ class NetworkAgent {
     }
     
     // public typealias CompletionHandler = (NSURLRequest?, NSHTTPURLResponse?, Result<Image>) -> Void
-    // CompletionHandler 헤더를 안쓰는 이유는 readability 유지를 위함.
+    // CompletionHandler 안쓰는 이유는 readability 유지를 위함.
     func getImages(URLString : String, completion block: (NSURLRequest?, NSHTTPURLResponse?, Result<Image>) -> Void) -> Request {
         return Alamofire.request(.GET, URLString).responseImage(completionHandler: block)
     }
