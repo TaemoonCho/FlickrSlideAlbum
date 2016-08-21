@@ -74,14 +74,15 @@ class Feed: NSObject {
         let targetString = "jsonFlickrFeed("
         var json : JSON? = nil
         if rawResponse.rangeOfString(targetString) != nil {
-            let processedJsonString = String(rawResponse.stringByReplacingOccurrencesOfString(targetString, withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).characters.dropLast())
+            let processedJsonString = String(rawResponse.stringByReplacingOccurrencesOfString(targetString, withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil).stringByReplacingOccurrencesOfString("\\'", withString: "'").characters.dropLast())
             json = processedJsonString.json
         } else {
             json = rawResponse.json
         }
         if let itemArray = json?["items"].array {
             return self.fromArray(itemArray)
+        } else {
+            return nil
         }
-        return nil
     }
 }
