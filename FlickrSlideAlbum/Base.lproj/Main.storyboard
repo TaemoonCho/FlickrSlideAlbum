@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1909" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlickrSlideAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,74 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jC-13-qJ5">
+                                <rect key="frame" x="257" y="218" width="86" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="lPH-Rp-1fC"/>
+                                </constraints>
+                                <state key="normal" title="Set duration"/>
+                                <connections>
+                                    <action selector="setDurationButtontapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oP2-hH-ZiQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY3-hJ-X6X">
+                                <rect key="frame" x="255" y="512" width="90" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="QgU-TY-oIL"/>
+                                    <constraint firstAttribute="width" constant="90" id="boX-HY-rUX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="시작"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seconds per each photos " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJL-52-RDk">
+                                <rect key="frame" x="182" y="256" width="236" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="q6w-At-NvM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9jC-13-qJ5" firstAttribute="centerX" secondItem="iJL-52-RDk" secondAttribute="centerX" id="Doo-cx-P2X"/>
+                            <constraint firstItem="iJL-52-RDk" firstAttribute="top" secondItem="9jC-13-qJ5" secondAttribute="bottom" constant="8" symbolic="YES" id="G4J-oh-7Gd"/>
+                            <constraint firstItem="iJL-52-RDk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="256" id="avF-Na-vqn"/>
+                            <constraint firstItem="QY3-hJ-X6X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gg7-p7-SQp"/>
+                            <constraint firstItem="iJL-52-RDk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q63-Ok-bPK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QY3-hJ-X6X" secondAttribute="bottom" constant="46" id="uQB-4U-Hdy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="durationLabelView" destination="iJL-52-RDk" id="mvh-gs-5lY"/>
+                        <outlet property="setDurationButton" destination="9jC-13-qJ5" id="NJe-u2-Art"/>
+                        <outlet property="startButton" destination="QY3-hJ-X6X" id="FAQ-zk-hkA"/>
+                        <outlet property="startButtonTapped" destination="QY3-hJ-X6X" id="HFj-cj-nis"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="374" y="333"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="27V-Rf-391">
+            <objects>
+                <viewController id="aky-jB-xls" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n7s-wg-auH"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfg-w2-PP1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tm7-cc-35k">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KzT-TR-osF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1069" y="333"/>
         </scene>
     </scenes>
 </document>
