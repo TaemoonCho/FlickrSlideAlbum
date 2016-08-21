@@ -12,6 +12,7 @@ Flickr 공개 피드의 이미지를 하나씩 보여주는 전자앨범.
 * Universal앱으로 아이폰과 아이패드에서 동작하며 모든 사이즈에 대응한다.
 
 ## Environment
+> **아래 버전들은 다음에 나올 의존성을 가진 라이브러리들과 연관이 있으니 주의.**
 
 - Xcode 7.2.1
 - OS X Yosemite 10.10.5 
@@ -41,16 +42,25 @@ README.md)
 	: Cedar 스타일의 matcher를 제공한다.
 
 ## How to Build (on OSX)
-1. [CocoaPods](http://cocoapods.org) 설치  :
+[CocoaPods](http://cocoapods.org)을 통해 의존성을 관리함으로 CocoaPods를 설치  
 ```bash
 $ gem install cocoapods
-```
-2. ProjectRootDiretory에서 ```bash
+```  
+
+설치가 끝나면 ProjectRootDiretory에서  
+```bash
 $ pod install
 ```
-3. 문제가 있을 경우 마찬가지로 ProjectRootDiretory에서  
-```$ ./podforceupdate.sh ```
-> podforceupdate.sh는 pod과 Xcode work space 파일을 삭제하고 새로이 만들어주는 쉴 스크립트.
+  
+문제가 있을 경우 마찬가지로 ProjectRootDiretory에서 podforceupdate.sh 실행.  
+```bash
+$ ./podforceupdate.sh
+```
+
+
+> **podforceupdate.sh**
+>
+> Cocoapods cache 및 build를 모두 지우고 새롭게 받으며 Xcode workspace file로 지우고 새로 생성하는 bash 쉘 스크립트.
 
 
 ## Report about running
