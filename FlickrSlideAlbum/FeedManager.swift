@@ -15,6 +15,9 @@ class FeedManager: NSObject {
     private(set) var bufferFeedUnit = 0
     private(set) var feeds : Array<Feed> = Array<Feed>()
     private(set) var currentRequest : Request? = nil
+    private(set) var isRunning = false
+    private(set) var prepared = false
+    private var preparedClosure: ((Bool) -> Void)?
     
     class var sharedInstance: FeedManager {
         struct Static {
@@ -30,11 +33,15 @@ class FeedManager: NSObject {
     init(bufferFeedUnit: Int = 3) {
         super.init()
         self.bufferFeedUnit = bufferFeedUnit
+    }
+    
+    func runWithPreparedBlock(block: (Bool) -> Void) {
+        self.preparedClosure = block
+        self.isRunning = true
         self.fetchNewFeedsIfNeed()
     }
     
-    
-    func hasNeedNewFeeds() -> Bool {
+    private func hasNeedNewFeeds() -> Bool {
         return (self.feeds.count <= bufferFeedUnit)
     }
     
@@ -45,6 +52,7 @@ class FeedManager: NSObject {
                 self.agent.getFeedAsModelWithCompletion({ (request, response, resultArray) -> Void in
                     self.feeds.appendContentsOf(resultArray)
                     dispatch_semaphore_signal(self.semaphore)
+                    self.downloadFeedImageIfNeed()
                 })
             }
         }
@@ -78,6 +86,12 @@ class FeedManager: NSObject {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
             dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
             func completeBlock(complete: Bool, nextIndex: Int) -> Void {
+                if ((!self.prepared) && (self.feeds.count > 0)) {
+                    self.prepared = true
+                    if let closure = self.preparedClosure {
+                        closure(true)
+                    }
+                }
                 if (self.feeds.count > nextIndex) {
                     self.downloadImage(self.feeds[nextIndex], index: nextIndex, completeBlock: completeBlock)
                 }
