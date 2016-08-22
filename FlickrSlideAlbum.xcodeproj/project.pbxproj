@@ -10,7 +10,6 @@
 		08EC1C48DBE45D4195C80B73 /* Pods_FlickrSlideAlbum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7402E2443D5E4DE96C1E8516 /* Pods_FlickrSlideAlbum.framework */; };
 		730B596C1D6713C300BF1E72 /* String+JsonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730B596B1D6713C300BF1E72 /* String+JsonTests.swift */; };
 		731A56CC1D69AAFD00547B72 /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A56CB1D69AAFD00547B72 /* ImageSliderViewController.swift */; };
-		731A56CD1D69AAFD00547B72 /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731A56CB1D69AAFD00547B72 /* ImageSliderViewController.swift */; };
 		734973E71D68509D003C0F41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973E61D68509D003C0F41 /* Router.swift */; };
 		734973E81D6850AB003C0F41 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973E61D68509D003C0F41 /* Router.swift */; };
 		734973EA1D6878AF003C0F41 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734973E91D6878AF003C0F41 /* RouterTests.swift */; };
@@ -487,7 +486,6 @@
 				735848F91D66FB91005EE9EA /* String+Json.swift in Sources */,
 				73D43FA01D680E6E007CCC3A /* NSDate.swift in Sources */,
 				735848F41D66F50F005EE9EA /* Feed.swift in Sources */,
-				731A56CD1D69AAFD00547B72 /* ImageSliderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
