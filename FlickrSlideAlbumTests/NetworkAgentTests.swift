@@ -24,10 +24,8 @@ class NetworkAgentTests: QuickSpec {
                         imageData = NSData(data: UIImageJPEGRepresentation(image!, 1)!)
                     })
                     expect(image).toNotEventually(beNil())
-                    expect(image?.size.width).toEventually(equal(120))
-                    expect(image?.size.height).toEventually(equal(120))
                     expect(imageData).toNotEventually(beNil())
-                    expect(imageData?.length).toEventually(equal(52779));
+                    expect(imageData?.length).toEventually(beGreaterThan(10000));
                 }
             }
             
