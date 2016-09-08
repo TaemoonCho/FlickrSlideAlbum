@@ -20,6 +20,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### Pods ###
+Pods/
+FlickrSlideAlbum.xcworkspace
+
 ### Xcode ###
 build/
 *.pbxuser
