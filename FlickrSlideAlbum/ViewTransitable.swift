@@ -1,14 +1,15 @@
 //
-//  UIView+Animation.swift
+//  ViewTransitable.swift
 //  FlickrSlideAlbum
 //
-//  Created by Tae-moonCho on 2016. 8. 21..
-//  Copyright © 2016년 . All rights reserved.
+//  Created by Jake Jo on 2016. 9. 8..
 //
 
 import UIKit
 
-public extension UIView {
+protocol ViewTransitable { }
+
+extension ViewTransitable where Self: UIView {
     func fadeIn(duration: NSTimeInterval = 0.35) {
         UIView.animateWithDuration(duration, animations: {
             self.alpha = 1.0

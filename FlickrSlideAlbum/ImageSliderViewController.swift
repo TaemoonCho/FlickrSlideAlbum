@@ -9,6 +9,9 @@
 import UIKit
 import SwiftLoader
 
+extension UILabel: ViewTransitable { }
+extension UIImageView: ViewTransitable { }
+
 class ImageSliderViewController: UIViewController {
 
     
@@ -32,14 +35,14 @@ class ImageSliderViewController: UIViewController {
     }
     
     func addTapGestureToImageView() {
-        let gesture = UITapGestureRecognizer(target: self, action: Selector("showOrHideInfoLabels:"))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(ImageSliderViewController.showOrHideInfoLabels(_:)))
         self.view.addGestureRecognizer(gesture)
     }
     
     func startTimer() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let duration = appDelegate.duration
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(duration), target: self, selector: Selector("getNewFeed"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(duration), target: self, selector: #selector(ImageSliderViewController.getNewFeed), userInfo: nil, repeats: true)
         
     }
     

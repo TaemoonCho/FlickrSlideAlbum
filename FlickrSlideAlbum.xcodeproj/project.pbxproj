@@ -23,8 +23,6 @@
 		735848F41D66F50F005EE9EA /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848F21D66F50F005EE9EA /* Feed.swift */; };
 		735848F81D66FB91005EE9EA /* String+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848F71D66FB91005EE9EA /* String+Json.swift */; };
 		735848F91D66FB91005EE9EA /* String+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735848F71D66FB91005EE9EA /* String+Json.swift */; };
-		735AA6791D69D3DC00DB2A15 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA6781D69D3DC00DB2A15 /* UIView+Animation.swift */; };
-		735AA67A1D69D44200DB2A15 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735AA6781D69D3DC00DB2A15 /* UIView+Animation.swift */; };
 		7361E6DC1D6846EF00A35796 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */; };
 		7361E6DD1D68471000A35796 /* NetworkAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */; };
 		738DE9481D6764E600157C7D /* FeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738DE9471D6764E600157C7D /* FeedTests.swift */; };
@@ -33,6 +31,9 @@
 		73A5E4A61D69653C0048F5F3 /* FeedManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73A5E4A51D69653C0048F5F3 /* FeedManagerTests.swift */; };
 		73D43F9F1D680E6E007CCC3A /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D43F9E1D680E6E007CCC3A /* NSDate.swift */; };
 		73D43FA01D680E6E007CCC3A /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73D43F9E1D680E6E007CCC3A /* NSDate.swift */; };
+		AFCD59311D8100BE00E9EF93 /* ViewTransitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCD59301D8100BE00E9EF93 /* ViewTransitable.swift */; };
+		AFCD59321D8100BE00E9EF93 /* ViewTransitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCD59301D8100BE00E9EF93 /* ViewTransitable.swift */; };
+		AFCD59381D81045100E9EF93 /* ViewTransitableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCD59361D81045100E9EF93 /* ViewTransitableTests.swift */; };
 		FC3DAC3F0B1C27E1F1C7FEEE /* Pods_FlickrSlideAlbumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CD8C60156E86C42F58C966 /* Pods_FlickrSlideAlbumTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +68,6 @@
 		735848E61D66F4C3005EE9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		735848F21D66F50F005EE9EA /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		735848F71D66FB91005EE9EA /* String+Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Json.swift"; sourceTree = "<group>"; };
-		735AA6781D69D3DC00DB2A15 /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		7361E6DB1D6846EF00A35796 /* NetworkAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkAgent.swift; sourceTree = "<group>"; };
 		7361FF601D670D8E0074EDAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
 		7361FF621D670D960074EDAE /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Pods/../build/Debug-iphoneos/Quick/Quick.framework"; sourceTree = "<group>"; };
@@ -79,6 +79,8 @@
 		76CD8C60156E86C42F58C966 /* Pods_FlickrSlideAlbumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrSlideAlbumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9361F2AB802B04E7E710F734 /* Pods-FlickrSlideAlbumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrSlideAlbumUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrSlideAlbumUITests/Pods-FlickrSlideAlbumUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		99B6B9F1142AF09FBA0CBE5A /* Pods-FlickrSlideAlbum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrSlideAlbum.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrSlideAlbum/Pods-FlickrSlideAlbum.release.xcconfig"; sourceTree = "<group>"; };
+		AFCD59301D8100BE00E9EF93 /* ViewTransitable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransitable.swift; sourceTree = "<group>"; };
+		AFCD59361D81045100E9EF93 /* ViewTransitableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransitableTests.swift; sourceTree = "<group>"; };
 		D463EDEC7C5795C3C59F43D7 /* Pods-FlickrSlideAlbum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrSlideAlbum.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrSlideAlbum/Pods-FlickrSlideAlbum.debug.xcconfig"; sourceTree = "<group>"; };
 		DC8B786BC4243CD61554B9E8 /* Pods_FlickrSlideAlbumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickrSlideAlbumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED14E4EC0C04357FF9AD7572 /* Pods-FlickrSlideAlbumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrSlideAlbumTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrSlideAlbumTests/Pods-FlickrSlideAlbumTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		735848C31D66F4C2005EE9EA /* FlickrSlideAlbum */ = {
 			isa = PBXGroup;
 			children = (
-				73A5E4A71D6995600048F5F3 /* ViewController */,
+				73A5E4A71D6995600048F5F3 /* View */,
 				73A5E4A11D68A2130048F5F3 /* Worker */,
 				73044EC21D683DDF00BAFE6F /* Network */,
 				735848F61D66FAF6005EE9EA /* Extension */,
@@ -185,7 +187,7 @@
 			children = (
 				735848F71D66FB91005EE9EA /* String+Json.swift */,
 				73D43F9E1D680E6E007CCC3A /* NSDate.swift */,
-				735AA6781D69D3DC00DB2A15 /* UIView+Animation.swift */,
+				AFCD59301D8100BE00E9EF93 /* ViewTransitable.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				730B596B1D6713C300BF1E72 /* String+JsonTests.swift */,
+				AFCD59361D81045100E9EF93 /* ViewTransitableTests.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -223,13 +226,13 @@
 			name = Worker;
 			sourceTree = "<group>";
 		};
-		73A5E4A71D6995600048F5F3 /* ViewController */ = {
+		73A5E4A71D6995600048F5F3 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				735848C61D66F4C2005EE9EA /* ViewController.swift */,
 				731A56CB1D69AAFD00547B72 /* ImageSliderViewController.swift */,
 			);
-			name = ViewController;
+			name = View;
 			sourceTree = "<group>";
 		};
 		9A3510B6EFB3A11E80D5F371 /* Frameworks */ = {
@@ -309,7 +312,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0720;
-				ORGANIZATIONNAME = HyperConnect;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					735848C01D66F4C2005EE9EA = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -462,9 +465,9 @@
 				7361E6DC1D6846EF00A35796 /* NetworkAgent.swift in Sources */,
 				73A5E4A31D68B0CD0048F5F3 /* FeedManager.swift in Sources */,
 				734973E71D68509D003C0F41 /* Router.swift in Sources */,
+				AFCD59311D8100BE00E9EF93 /* ViewTransitable.swift in Sources */,
 				735848F31D66F50F005EE9EA /* Feed.swift in Sources */,
 				735848C51D66F4C2005EE9EA /* AppDelegate.swift in Sources */,
-				735AA6791D69D3DC00DB2A15 /* UIView+Animation.swift in Sources */,
 				73D43F9F1D680E6E007CCC3A /* NSDate.swift in Sources */,
 				731A56CC1D69AAFD00547B72 /* ImageSliderViewController.swift in Sources */,
 			);
@@ -477,13 +480,14 @@
 				734973EC1D6878C2003C0F41 /* NetworkAgentTests.swift in Sources */,
 				73A5E4A41D68B0CD0048F5F3 /* FeedManager.swift in Sources */,
 				734973EA1D6878AF003C0F41 /* RouterTests.swift in Sources */,
-				735AA67A1D69D44200DB2A15 /* UIView+Animation.swift in Sources */,
 				730B596C1D6713C300BF1E72 /* String+JsonTests.swift in Sources */,
 				73A5E4A61D69653C0048F5F3 /* FeedManagerTests.swift in Sources */,
 				738DE9481D6764E600157C7D /* FeedTests.swift in Sources */,
 				7361E6DD1D68471000A35796 /* NetworkAgent.swift in Sources */,
 				734973E81D6850AB003C0F41 /* Router.swift in Sources */,
+				AFCD59321D8100BE00E9EF93 /* ViewTransitable.swift in Sources */,
 				735848F91D66FB91005EE9EA /* String+Json.swift in Sources */,
+				AFCD59381D81045100E9EF93 /* ViewTransitableTests.swift in Sources */,
 				73D43FA01D680E6E007CCC3A /* NSDate.swift in Sources */,
 				735848F41D66F50F005EE9EA /* Feed.swift in Sources */,
 			);

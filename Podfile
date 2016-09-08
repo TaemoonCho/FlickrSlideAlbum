@@ -41,7 +41,7 @@ end
 target 'FlickrSlideAlbumTests' do
     base_pods
     testing_pods
-  end
+end
 
 #target 'FlickrSlideAlbumUITests' do
 #	ui_pods
